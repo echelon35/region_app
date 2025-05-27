@@ -30,32 +30,32 @@
                 </a>
             </th>
             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-            <a href="#" class="group inline-flex" (click)="sortBy('codesPostaux')">
-                Codes postaux
-                <span class="ml-2 flex-none rounded-sm">
-                <svg [ngClass]="{
-                        'bg-gray-200 bg-gray-300 visible': currentFilter === 'codesPostaux',
-                        'invisible text-gray-400 group-hover:visible visible': currentFilter !== 'codesPostaux',
-                        'rotate-180': currentFilter === 'codesPostaux' && currentOrder === 'ASC',
-                    }" class="ml-2 size-5 flex-none rounded-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                </svg>
-                </span>
-            </a>
+                <a href="#" class="group inline-flex" (click)="sortBy('codesPostaux')">
+                    Codes postaux
+                    <span class="ml-2 flex-none rounded-sm">
+                    <svg [ngClass]="{
+                            'bg-gray-200 bg-gray-300 visible': currentFilter === 'codesPostaux',
+                            'invisible text-gray-400 group-hover:visible visible': currentFilter !== 'codesPostaux',
+                            'rotate-180': currentFilter === 'codesPostaux' && currentOrder === 'ASC',
+                        }" class="ml-2 size-5 flex-none rounded-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                    </svg>
+                    </span>
+                </a>
             </th>
             <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">
-            <a href="#" class="group inline-flex" (click)="sortBy('population')">
-                Population
-                <span class="ml-2 flex-none rounded-sm">
-                <svg [ngClass]="{
-                        'bg-gray-200 bg-gray-300 visible': currentFilter === 'population',
-                        'invisible text-gray-400 group-hover:visible group-focus:visible': currentFilter !== 'population',
-                        'rotate-180': currentFilter === 'population' && currentOrder === 'ASC',
-                    }" class="ml-2 size-5 flex-none rounded-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
-                    <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                </svg>
-                </span>
-            </a>
+                <a href="#" class="group inline-flex" (click)="sortBy('population')">
+                    Population
+                    <span class="ml-2 flex-none rounded-sm">
+                    <svg [ngClass]="{
+                            'bg-gray-200 bg-gray-300 visible': currentFilter === 'population',
+                            'invisible text-gray-400 group-hover:visible group-focus:visible': currentFilter !== 'population',
+                            'rotate-180': currentFilter === 'population' && currentOrder === 'ASC',
+                        }" class="ml-2 size-5 flex-none rounded-sm" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                    </svg>
+                    </span>
+                </a>
             </th>
         </tr>
     </thead>

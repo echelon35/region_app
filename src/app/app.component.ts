@@ -3,7 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-root',
+  selector: 'kbr-root',
   standalone: true,
   templateUrl: './app.component.html',
   imports: [RouterOutlet],

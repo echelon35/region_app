@@ -7,7 +7,7 @@ import { Filter } from 'src/app/DTO/Filter';
 import { RegionApiService } from 'src/app/services/region-api.service';
 
 @Component({
-  selector: 'app-cities-list',
+  selector: 'kbr-cities-list',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cities-list.component.html'
@@ -27,8 +27,7 @@ export class CitiesListComponent {
     { name: 'codes_postaux', order: 'ASC', type: 'string' }
   ];
 
-  constructor(private regionApiService: RegionApiService) {
-  }
+  constructor(private regionApiService: RegionApiService) {}
 
   ngOnInit(){
     this.deptSubscription = this.dept.subscribe((val) => this.findCities(val));
@@ -38,6 +37,10 @@ export class CitiesListComponent {
     this.deptSubscription.unsubscribe();
   }
 
+  /**
+   * Recherche les villes d'un département donné.
+   * @param dept Le département pour lequel on veut récupérer les villes.
+   */
   findCities(dept: DepartementDto) {
     if(this.dept){
       this.regionApiService.getCitiesByDept(dept?.code).subscribe({
@@ -49,6 +52,10 @@ export class CitiesListComponent {
     }
   }
 
+  /**
+   * Trie les villes selon le filtre spécifié.
+   * @param filter Nom du filtre à appliquer ('nom', 'code', 'population', 'codes_postaux').
+   */
   sortBy(filter: string){
     this.currentFilter = filter;
     this.currentOrder = (this.filters.find(f => f.name == filter)?.order === 'ASC') ? 'DESC' : 'ASC';
