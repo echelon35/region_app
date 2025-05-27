@@ -24,6 +24,10 @@ export class SearchViewComponent {
   constructor(private regionApiService: RegionApiService) {
   }
 
+  /**
+   * Récupère la région sélectionnée depuis le composant de recherche de région.
+   * @param region 
+   */
   getSelectedRegion(region: AutocompleteRegionDto) {
     if(region && region.nom) {
       this.selectedRegion = region;
@@ -35,6 +39,10 @@ export class SearchViewComponent {
     }
   }
 
+  /**
+   * Sélectionne un département et émet un événement avec le département sélectionné.
+   * @param dept 
+   */
   selectDept(dept: DepartementDto) {
     console.log('Selected Department:', dept);
     this.selectedDept = dept;

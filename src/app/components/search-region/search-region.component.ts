@@ -13,13 +13,12 @@ import { RegionApiService } from 'src/app/services/region-api.service';
 })
 export class SearchRegionComponent {
   
-  public searchText$ = new BehaviorSubject<string>('');
+  public regionList: AutocompleteRegionDto[] = [];
+  public autocompleteVisible: boolean = false;
+  public regionName: string = '';
   private wasInside = false;
-  regionList: AutocompleteRegionDto[] = [];
-  regions$: Observable<AutocompleteRegionDto[]> | undefined;
-  autocompleteVisible: boolean = false;
-
-  regionName: string = '';
+  private regions$: Observable<AutocompleteRegionDto[]> | undefined;
+  public searchText$ = new BehaviorSubject<string>('');
   @Output() selectedRegion$ = new EventEmitter<AutocompleteRegionDto>();
 
   private cd = inject(ChangeDetectorRef)
@@ -42,16 +41,25 @@ export class SearchRegionComponent {
       }})
   }
 
+  /**
+   * Récupère la valeur de l'input de recherche.
+   * @param event 
+   * @returns valeur de l'input
+   */
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
   }
 
+  /**
+   * Déclenche la recherche de régions en fonction de la valeur saisie.
+   * @param eventValue 
+   */
   searchRegion(eventValue: string) {
     this.searchText$.next(eventValue);
   }
 
   /**
-   * Update view
+   * Mise à jour du composant pour forcer la détection des changements.
    */
   updateView(){
     this.cd.markForCheck();
@@ -81,6 +89,10 @@ export class SearchRegionComponent {
     this.wasInside = false;
   }
 
+  /**
+   * Sélectionne une région dans la liste d'autocomplétion.
+   * @param region 
+   */
   selectRegion(region: AutocompleteRegionDto) {
     this.regionName = region.nom;
     this.selectedRegion$.emit(region);

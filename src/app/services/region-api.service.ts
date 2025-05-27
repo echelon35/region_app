@@ -22,15 +22,30 @@ export class RegionApiService {
     constructor(private http: HttpClient){
     }
 
+    /**
+     * Récupération des régions par nom depuis l'API.
+     * @param region 
+     * @returns 
+     */
     getRegionsName(region: string = ''): Observable<AutocompleteRegionDto[]> {
-      console.log('getRegionsName called with:', region);
       return this.http.get<AutocompleteRegionDto[]>(API_URL + `/regions?nom=${region}`, this.httpOptions);
     }
 
+    /**
+     * Récupération des départements par région depuis l'API.
+     * @param codeRegion 
+     * @returns 
+     */
     getDeptByRegions(codeRegion: string): Observable<DepartementDto[]> {
       return this.http.get<DepartementDto[]>(API_URL + `/regions/${codeRegion}/departements`, this.httpOptions);
     }
 
+    /**
+     * Récupération des villes par département depuis l'API.
+     * @param codeDept 
+     * @param nom 
+     * @returns 
+     */
     getCitiesByDept(codeDept: string, nom: string = ''): Observable<CityDto[]> {
       return this.http.get<CityDto[]>(API_URL + `/departements/${codeDept}/communes`, this.httpOptions);
     }
