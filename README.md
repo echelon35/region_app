@@ -1,6 +1,9 @@
-# RegionApp
+# GeoAPI App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.0.
+Ce projet a été effectué pour KeyConsulting, il est réalisé sous Angular 18.2.13.
+La gestion du style est effectué avec Tailwind V3.4.17.
+
+This project was created for KeyConsulting and is built using Angular 18.2.13. Style management is handled using Tailwind V3.4.17.
 
 ## Development server
 
