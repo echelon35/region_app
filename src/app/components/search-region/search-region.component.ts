@@ -9,8 +9,7 @@ import { RegionApiService } from 'src/app/services/region-api.service';
   standalone: true,
   imports: [FormsModule, CommonModule],
   selector: 'app-search-region',
-  templateUrl: './search-region.component.html',
-  styleUrls: ['./search-region.component.css']
+  templateUrl: './search-region.component.html'
 })
 export class SearchRegionComponent {
   

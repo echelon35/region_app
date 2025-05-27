@@ -21,10 +21,10 @@ export class CitiesListComponent {
   currentFilter = 'nom';
   currentOrder: 'ASC' | 'DESC' = 'ASC';
   filters: Filter[] = [
-    { name: 'nom', order: 'ASC' },
-    { name: 'code', order: 'ASC' },
-    { name: 'population', order: 'ASC' },
-    { name: 'codes_postaux', order: 'ASC' }
+    { name: 'nom', order: 'ASC', type: 'string' },
+    { name: 'code', order: 'ASC', type: 'string' },
+    { name: 'population', order: 'ASC', type: 'number' },
+    { name: 'codes_postaux', order: 'ASC', type: 'string' }
   ];
 
   constructor(private regionApiService: RegionApiService) {
@@ -74,11 +74,22 @@ export class CitiesListComponent {
             return '';
         }
       };
-      if (this.currentOrder === 'ASC') {
-        return getValue(a).localeCompare(getValue(b));
-      } else {
-        return getValue(b).localeCompare(getValue(a));
+      if(this.filters.find(f => f.name == filter)?.type === 'string'){
+        if (this.currentOrder === 'ASC') {
+          return getValue(a).localeCompare(getValue(b));
+        } else {
+          return getValue(b).localeCompare(getValue(a));
+        }
       }
+      else if(this.filters.find(f => f.name == filter)?.type === 'number'){
+        const numA = parseFloat(getValue(a));
+        const numB = parseFloat(getValue(b));
+        return this.currentOrder === 'ASC' ? numA - numB : numB - numA;
+      }
+      else{
+        return 0;
+      }
+
     });
   }
   

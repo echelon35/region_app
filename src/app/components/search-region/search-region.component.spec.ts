@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchRegionComponent } from './search-region.component';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('SearchRegionComponent', () => {
   let component: SearchRegionComponent;
@@ -8,7 +10,8 @@ describe('SearchRegionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [SearchRegionComponent]
+    imports: [SearchRegionComponent],
+    providers: [provideHttpClient()]
 })
     .compileComponents();
 

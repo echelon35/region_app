@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchViewComponent } from './search-view.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('SearchViewComponent', () => {
   let component: SearchViewComponent;
@@ -8,7 +9,8 @@ describe('SearchViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchViewComponent]
+      imports: [SearchViewComponent],
+      providers: [provideHttpClient()]
     })
     .compileComponents();
 
