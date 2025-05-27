@@ -1,0 +1,18 @@
+<div class="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-xs sm:gap-x-6 sm:px-6 lg:px-8">
+    <app-search-region (selectedRegion$)="getSelectedRegion($event)"></app-search-region>
+</div>
+
+<main class="py-10">
+    <div class="px-4 sm:px-6 lg:px-8">
+        Région selectionnée : <span class="font-bold">{{ selectedRegion?.nom || 'Aucune région sélectionnée' }}</span>
+    </div>
+    <div *ngIf="depts.length > 0" class="px-4 sm:px-6 lg:px-8 mt-4">
+        <p class="font-bold mb-2">Départements ({{this.depts.length}})</p>
+        <div class="space-x-2">
+            <span *ngFor="let departement of this.depts" (click)="selectDept(departement)" class="cursor-pointer inline-flex items-center rounded-md hover:bg-green-600 px-2 py-1 text-xs font-medium hover:text-white ring-1 ring-green-400/20 ring-inset" [ngClass]="{'bg-green-600 text-white': departement == selectedDept, 'bg-green-400/10 text-green-500': departement != selectedDept}">{{departement.nom}} ({{departement.code}})</span>
+        </div>
+    </div>
+    <div class="px-4 sm:px-6 lg:px-8 mt-4">
+        <app-cities-list [dept]="deptSubject.asObservable()"></app-cities-list>
+    </div>
+</main>
