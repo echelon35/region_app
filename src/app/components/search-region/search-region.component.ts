@@ -80,11 +80,9 @@ export class SearchRegionComponent {
    */
   @HostListener('document:click')
   clickout() {
-    if (!this.wasInside) {
-      if(this.autocompleteVisible){
-        this.autocompleteVisible = false;
-        this.updateView();
-      }
+    if(this.autocompleteVisible){
+      this.autocompleteVisible = false;
+      this.updateView();
     }
     this.wasInside = false;
   }

@@ -4,7 +4,7 @@
     <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
     </svg>
     @if(regionList.length > 0){
-        <div *ngIf="autocompleteVisible" class="absolute top-9 left-0 divide-y divide-gray-200 w-full border-2 border-gray-400 max-h-64 overflow-auto">
+        <div *ngIf="autocompleteVisible" class="z-index-2 bg-white absolute top-9 left-0 divide-y divide-gray-200 w-full border-2 border-gray-400 max-h-64 overflow-auto">
             <div (click)="selectRegion(region)" class="cursor-pointer flex items-center bg-white border-black px-2 py-2 hover:text-indigo-400 hover:fill-indigo-400" *ngFor="let region of regionList">
                 <p title="{{region.nom}}" class="text-sm">
                     {{region.nom}}
